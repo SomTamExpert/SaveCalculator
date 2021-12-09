@@ -12,25 +12,25 @@ public class AppTest {
      * Rigorous Test :-)
      */
     @Test
-    public void summe() {
+    public void testSummeZweiPositiveIsOk() {
         SaveCalculator testee = new SaveCalculator();
         int value1 = 10;
         int value2 = 20;
         assertTrue(testee.summe(value1, value2) == 30);
     }
-
-    public void subtraction() {
+    @Test
+    public void testSubtraktionZweiPositiveIsOk() {
         SaveCalculator testee = new SaveCalculator();
         int value1 = 10;
         int value2 = 20;
         assertTrue(testee.subtraktion(value1, value2) == -20);
     }
-
-    public void summeMax() {
+    @Test
+    public void testSummeGroesstePositiveZahlKleintePositiveZahlIsOk() {
         SaveCalculator testee = new SaveCalculator();
         int value1 = 1;
-        int value2 = 7;
-        assertTrue(testee.summe(value1, value2) ==-8);
+        int value2 =  2147483647;
+        assertTrue(testee.summe(value1, value2) == -1);
     }
 }
 //tests to implement
