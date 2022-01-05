@@ -1,5 +1,4 @@
 package ch.bbw.km.savecalculator;
-
 /**
  * SaveCalculator
  * Rechnet 'vorsichtig' mit Zahlen.
@@ -32,7 +31,7 @@ public class SaveCalculator {
 		}
 		return divid1 / divid2;
 	}
-	private int multiply(int multip1, int multip2) throws ArithmeticException{
+	protected int multiply(int multip1, int multip2) throws ArithmeticException{
 		long value = (long) multip1 * (long) multip2;
 		if((value > Integer.MAX_VALUE) || (value < Integer.MIN_VALUE)) {
 			throw new ArithmeticException();
@@ -46,7 +45,7 @@ public class SaveCalculator {
 		}
 		return (int) Math.pow(quadrant1, quadrant2);
 	}
-	private int squareRoot(int base) throws ArithmeticException {
+	public int squareRoot(int base) throws ArithmeticException {
 		long value = (long) Math.sqrt((long) base);
 		if ((value) > Integer.MAX_VALUE || (value < Integer.MIN_VALUE)) {
 			throw new ArithmeticException();
