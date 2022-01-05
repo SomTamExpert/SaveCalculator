@@ -1,5 +1,7 @@
 package ch.bbw.km.savecalculator;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 
@@ -9,44 +11,49 @@ import static org.junit.Assert.assertTrue;
  *  * @version 05.01.2022
  */
 public class AppTest {
+    private SaveCalculator testee;
+    @Before
+    public void setup() {
+       testee = new SaveCalculator();
+    }
+    @After
+    public void deleteSetup() {
+        int value1 = 2;
+        int value2 = 2;
+        testee.delete(value1, value2);
+    }
     @Test
     public void testSummeZweiPositiveZahlenIsOk() {
-        SaveCalculator testee = new SaveCalculator();
         int value1 = 10;
         int value2 = 20;
         assertTrue(testee.summarize(value1, value2) == 30);
     }
     @Test
     public void testSummeGroesstePositiveZahlUndKleintePositiveZahlIsOk() {
-        SaveCalculator testee = new SaveCalculator();
         int value1 = Integer.MAX_VALUE;
         int value2 = 1;
         assertTrue(testee.summarize(value1, value2) == -2147483648);
     }
     @Test
     public void testSummeGroessteNegativeZahlUndKleinstePositiveZahlIsOk() {
-        SaveCalculator testee = new SaveCalculator();
         int value1 = Integer.MIN_VALUE;
         int value2 = 1;
         assertTrue(testee.summarize(value1, value2) == -2147483647);
     }
     @Test
     public void testSubtraktionZweiPositiveZahlenIsOk() {
-        SaveCalculator testee = new SaveCalculator();
         int value1 = 10;
         int value2 = 20;
         assertTrue(testee.subtract(value1, value2) == -10);
     }
     @Test
     public void testSubtraktionGroessteNegativeZahlUndKleinsteNegativeZahlIsOk() {
-        SaveCalculator testee = new SaveCalculator();
         int value1 = Integer.MIN_VALUE;
         int value2 = -1;
         assertTrue(testee.subtract(value1, value2) == 2147483647);
     }
     @Test
     public void testSubtraktionGroesstePositiveZahlUndKleinsteNegativeZahlIsOk() {
-        SaveCalculator testee = new SaveCalculator();
         int value1 = Integer.MAX_VALUE;
         int value2 = -1;
         assertTrue(testee.subtract(value1, value2) == -2147483648);

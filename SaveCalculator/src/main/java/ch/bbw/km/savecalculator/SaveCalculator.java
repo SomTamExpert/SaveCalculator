@@ -56,4 +56,8 @@ public class SaveCalculator {
 		}
 		return (int) Math.sqrt(base);
 	}
+	public void delete(int value1, int value2) {
+		value1 = 0;
+		value2 = 0;
+	}
 }
