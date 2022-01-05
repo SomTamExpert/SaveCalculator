@@ -29,10 +29,22 @@ public class AppTest {
         assertTrue(testee.summarize(value1, value2) == 30);
     }
     @Test
-    public void testSummeGroesstePositiveZahlUndKleintePositiveZahlIsOk() {
+    public void testSummeZweiNegativeZahlenIsOk() {
+        int value1 = -166;
+        int value2 = -334;
+        assertTrue(testee.summarize(value1, value2) == -500);
+    }
+    @Test
+    public void testSummePositiveZahlUndNegativeZahlIsOk() {
+        int value1 = 89;
+        int value2 = -122;
+        assertTrue(testee.summarize(value1, value2) == -33);
+    }
+    @Test(expected = ArithmeticException.class)
+    public void testSummeGroesstePositiveZahlUndKleintePositiveZahlThrowsException() {
         int value1 = Integer.MAX_VALUE;
         int value2 = 1;
-        assertTrue(testee.summarize(value1, value2) == -2147483648);
+        testee.summarize(value1, value2);
     }
     @Test
     public void testSummeGroessteNegativeZahlUndKleinstePositiveZahlIsOk() {
@@ -47,17 +59,60 @@ public class AppTest {
         assertTrue(testee.subtract(value1, value2) == -10);
     }
     @Test
+    public void testSubtraktionZweiNegativeZahlenIsOk() {
+        int value1 = -55;
+        int value2 = -66;
+        assertTrue(testee.subtract(value1,value2) == 11);
+    }
+    @Test
+    public void testSubtraktionPositiveUndNegativeZahlIsOk() {
+        int value1 = 3814;
+        int value2 = -402;
+        assertTrue(testee.subtract(value1, value2) == 4216);
+    }
+    @Test
     public void testSubtraktionGroessteNegativeZahlUndKleinsteNegativeZahlIsOk() {
         int value1 = Integer.MIN_VALUE;
         int value2 = -1;
-        assertTrue(testee.subtract(value1, value2) == 2147483647);
+        assertTrue(testee.subtract(value1, value2) == -2147483647);
     }
-    @Test
-    public void testSubtraktionGroesstePositiveZahlUndKleinsteNegativeZahlIsOk() {
+    @Test(expected = ArithmeticException.class)
+    public void testSubtraktionGroesstePositiveZahlUndKleinsteNegativeZahlThrowsException() {
         int value1 = Integer.MAX_VALUE;
         int value2 = -1;
-        assertTrue(testee.subtract(value1, value2) == -2147483648);
+        testee.subtract(value1, value2);
     }
+    @Test
+    public void testDivisionZweiPositiveZahlenIsOK() {
+        int value1 = 17;
+        int value2 = 1821;
+        assertTrue(testee.divide(value1, value2) == 0);
+    }
+    @Test
+    public void testDivisionZweiNegativeZahlenIsOK() {
+        int value1 = -64;
+        int value2 = -8;
+        assertTrue(testee.divide(value1, value2) == 8);
+    }
+    @Test
+    public void testDivisionPositiveZahlUndNegativeZahlIsOk() {
+        int value1 = 120;
+        int value2 = -11;
+        assertTrue(testee.divide(value1, value2) == -10);
+    }
+    @Test(expected = ArithmeticException.class)
+    public void testDivisionPositiveZahlUndNullThrowsException() {
+        int value1 = 13;
+        int value2 = 0;
+        testee.divide(value1,value2);
+    }
+    @Test
+    public void testDivisionPositiveZahlUndConvertedStringThrowsException() throws NullPointerException{
+        int value1 = 12;
+        Integer value2 = null;
+        testee.divide(value1, value2);
+    }
+
 }
 
 

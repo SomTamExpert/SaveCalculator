@@ -27,9 +27,6 @@ public class SaveCalculator {
 	}
 	public int divide(int divid1, int divid2) throws ArithmeticException {
 		long value = (long) divid1 / (long) divid2;
-		if((value > Integer.MAX_VALUE) || (value < Integer.MIN_VALUE)) {
-			throw new ArithmeticException();
-		}
 		if (divid2 == 0) {
 			throw  new ArithmeticException();
 		}
