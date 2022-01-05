@@ -30,6 +30,9 @@ public class SaveCalculator {
 		if((value > Integer.MAX_VALUE) || (value < Integer.MIN_VALUE)) {
 			throw new ArithmeticException();
 		}
+		if (divid2 == 0) {
+			throw  new ArithmeticException();
+		}
 		return divid1 / divid2;
 	}
 	private int multiply(int multip1, int multip2) throws ArithmeticException{
