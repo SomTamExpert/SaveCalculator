@@ -1,11 +1,12 @@
-package ch.bbw.pr.savecalculator;
+package ch.bbw.km.savecalculator;
 
 import org.junit.Test;
-
 import static org.junit.Assert.assertTrue;
 
 /**
  * Unit test for simple App.
+ * * @author marco
+ *  * @version 05.01.2022
  */
 public class AppTest {
     /**
@@ -19,18 +20,18 @@ public class AppTest {
         assertTrue(testee.summarize(value1, value2) == 30);
     }
     @Test
-    public void testSubtraktionZweiPositiveIsOk() {
-        SaveCalculator testee = new SaveCalculator();
-        int value1 = 10;
-        int value2 = 20;
-        assertTrue(testee.subtract(value1, value2) == -20);
-    }
-    @Test
     public void testSummeGroesstePositiveZahlKleintePositiveZahlIsOk() {
         SaveCalculator testee = new SaveCalculator();
         int value1 = 1;
         int value2 =  2147483647;
-        assertTrue(testee.summarize(value1, value2) == -1);
+        assertTrue(testee.summarize(value1, value2) == -2147483648);
+    }
+    @Test
+    public void testSubtraktionZweiPositiveIsOk() {
+        SaveCalculator testee = new SaveCalculator();
+        int value1 = 10;
+        int value2 = 20;
+        assertTrue(testee.subtract(value1, value2) == -10);
     }
 }
 //tests to implement
