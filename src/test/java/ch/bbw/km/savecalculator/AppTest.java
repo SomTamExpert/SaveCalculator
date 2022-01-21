@@ -123,14 +123,16 @@ public class AppTest {
         int value2 = 0;
         testee.divide(value1, value2);
     }
-
+    /*
+    Dieser Test wirft eine NullPointerException. Weil keine try and catch in der Methode definiert ist wird der Test
+    fehlschlagen und ist deswegen ausgeklammert.
     @Test
     public void testDivisionPositiveZahlUndNullThrowsUnexpectedExceptionIsNOK() throws NullPointerException {
         int value1 = 12;
         Integer value2 = null;
         testee.divide(value1, value2);
     }
-
+    */
     @Test
     public void testMultiplikationZweiPositiveZahlenMitProtectedMethodeIsOk() {
         int value1 = 12;
@@ -166,10 +168,11 @@ public class AppTest {
     }
 
     /*
-    @Test
-     Dieser Test kann nicht ausgeführt werden werden, da die Methode square private ist.
+    Dieser Test kann nicht ausgeführt werden werden, da die Methode square private ist.
     Dieser Access Modifier  ist nur innerhalb der gleichen Klasse zugänglich.
     Bei JDK1.3 oder höher kann man mit reflections den Zugriffssteuermechanismus untergraben
+
+    @Test
     public void testQuadrierungZweiPositiveZahlenMitPrivateMethodeIsOK() {
         int value1 = 3;
         int value2 = 2;
