@@ -41,6 +41,13 @@ public class AppTest {
     }
 
     @Test
+    public void testSummePostiveZahlUnd0IsOk() {
+        int value1 = 345982;
+        int value2 = 0;
+        assertTrue(testee.summarize(value1, value2) == 345982);
+    }
+
+    @Test
     public void testSummePositiveZahlUndNegativeZahlIsOk() {
         int value1 = 89;
         int value2 = -122;
@@ -83,6 +90,13 @@ public class AppTest {
     }
 
     @Test
+    public void testSubtraktionNegativeZahlUnd0IsOk() {
+        int value1 = 987651;
+        int value2 = 0;
+        assertTrue(testee.subtract(value1, value2) == 987651);
+    }
+
+    @Test
     public void testSubtraktionGroessteNegativeZahlUndKleinsteNegativeZahlIsOk() {
         int value1 = Integer.MIN_VALUE;
         int value2 = -1;
@@ -118,7 +132,7 @@ public class AppTest {
     }
 
     @Test(expected = ArithmeticException.class)
-    public void testDivisionPositiveZahlUndNullThrowsExpectedExceptionIsOK() {
+    public void testDivisionPositiveZahlUnd0ThrowsExpectedExceptionIsOK() {
         int value1 = 13;
         int value2 = 0;
         testee.divide(value1, value2);
@@ -179,6 +193,39 @@ public class AppTest {
         assertTrue(testee.square(value1, value2) == 9);
     }
     */
+    @Test
+    public void testWurzelziehenPositiveZahlIsOK() {
+        int value1 = 144;
+        assertTrue(testee.squareRoot(value1) == 12);
+    }
+
+    @Test
+    public void testModuloZweiPositiveZahlenIsOk() {
+        int value1 = 55;
+        int value2 = 10;
+        assertTrue(testee.modulo(value1, value2) == 5);
+    }
+    @Test
+    public void testModuloZweiNegativeZahlenIsOk() {
+            int value1 = -2000;
+        int value2 = -166;
+        assertTrue(testee.modulo(value1, value2) == -8);
+    }
+
+    @Test
+    public void testModuloPositiveZahlUndNegativeZahlIsOk() {
+        int value1 = -26;
+        int value2 = 7;
+        assertTrue(testee.modulo(value1, value2) == -5);
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void testModuloPositiveZahlUnd0ThrowsExpectedExceptionIsOK() {
+        int value1 = 13;
+        int value2 = 0;
+        testee.divide(value1, value2);
+    }
+
 }
 
 

@@ -60,6 +60,9 @@ public class SaveCalculator {
 	}
 	// calculate modulo from two integer
 	public int modulo(int modulo1, int modulo2) {
+		if(modulo2 == 0) {
+			throw new ArithmeticException();
+		}
 		return modulo1 % modulo2;
 	}
 	// resets the values,  used in AppTest
